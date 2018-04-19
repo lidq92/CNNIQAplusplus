@@ -316,7 +316,7 @@ if __name__ == '__main__':
             loss = conf['alpha_q'] * criterion1(Variable(qq), label) + \
                    conf['alpha_d'] * criterion2(Variable(dd), label2)
             L += loss.data[0]
-        test_loss = L[0] / (i + 1)
+        test_loss = L / (i + 1)
         measure_values = measure(sq, q, sq_std)
         SROCC, KROCC, PLCC, RMSE, OR = measure_values
         Acc = np.mean([d[i] == sd[i] for i in range(len(d))])
