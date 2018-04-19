@@ -16,7 +16,7 @@ use_cuda: True #
 enableTensorboard: True #
 test_during_training: True #
 
-database: LIVE # TID2008 or TID2013?
+database: LIVE
 model: CNNIQAplusplus
 LIVE:
   datainfo: ./data/LIVEfullinfo.mat
@@ -58,4 +58,4 @@ test_ratio: 0.2  #
 batch_size: 128
 learning_rate: 0.0001
 weight_decay: 0
-n_epochs: 200
+n_epochs: 400

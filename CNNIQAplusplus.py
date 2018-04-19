@@ -115,7 +115,7 @@ if __name__ == '__main__':
                                  lr=conf['learning_rate'],
                                  weight_decay=conf['weight_decay'])
     step = 1
-    best_val_criterion = -1 # 
+    best_val_criterion = -1 #
     for epoch in range(conf['n_epochs']):  # loop over the dataset multiple times
 
         net.train()
@@ -225,55 +225,55 @@ if __name__ == '__main__':
                 logger3.scalar_summary("RMSE: ", RMSE, epoch)  #
                 logger3.scalar_summary("OR: ", OR, epoch)  #
                 logger3.scalar_summary("Acc: ", Acc, epoch)  #
-        
+
 
         # Update the model with the best val
         # when epoch is larger than n_epochs/6
-        # This is to avoid the situation that the model will not be updated 
+        # This is to avoid the situation that the model will not be updated
         # due to the impact of randomly initializations of the networks
         if val_PLCC > best_val_criterion and epoch > conf['n_epochs']/6: #
 
-            print("EXP ID={}: ".format(EXP_ID) + 
-                  "Update best model using best_val_criterion " + 
+            print("EXP ID={}: ".format(EXP_ID) +
+                  "Update best model using best_val_criterion " +
                   "in epoch {}".format(epoch))
-            print("Val results: " + 
-                   "val loss={:.4f}, ".format(val_loss) + 
-                   "SROCC={:.4f}, ".format(val_SROCC) + 
-                   "KROCC={:.4f}, ".format(val_KROCC) + 
-                   "PLCC={:.4f}, ".format(val_PLCC) + 
+            print("Val results: " +
+                   "val loss={:.4f}, ".format(val_loss) +
+                   "SROCC={:.4f}, ".format(val_SROCC) +
+                   "KROCC={:.4f}, ".format(val_KROCC) +
+                   "PLCC={:.4f}, ".format(val_PLCC) +
                    "RMSE={:.4f}, ".format(val_RMSE) +
                    "OR={:.2f}%, ".format(val_OR * 100) +
                    "Acc={:.2f}%.".format(val_Acc * 100))
             f = open(save_result_file+'.txt', 'w')
-            f.write("EXP ID={}: ".format(EXP_ID) + 
-                  "Update best model using best_val_criterion " + 
+            f.write("EXP ID={}: ".format(EXP_ID) +
+                  "Update best model using best_val_criterion " +
                   "in epoch {}".format(epoch) + "\n")
-            f.write("Val results: " + 
-                   "val loss={:.4f}, ".format(val_loss) + 
-                   "SROCC={:.4f}, ".format(val_SROCC) + 
-                   "KROCC={:.4f}, ".format(val_KROCC) + 
-                   "PLCC={:.4f}, ".format(val_PLCC) + 
+            f.write("Val results: " +
+                   "val loss={:.4f}, ".format(val_loss) +
+                   "SROCC={:.4f}, ".format(val_SROCC) +
+                   "KROCC={:.4f}, ".format(val_KROCC) +
+                   "PLCC={:.4f}, ".format(val_PLCC) +
                    "RMSE={:.4f}, ".format(val_RMSE) +
                    "OR={:.2f}%, ".format(val_OR * 100) +
                    "Acc={:.2f}%.".format(val_Acc * 100) + '\n')
             if test_ratio > 0 and conf['test_during_training']:
-                print("Test results: " + 
-                       "test loss={:.4f}, ".format(test_loss) + 
-                       "SROCC={:.4f}, ".format(SROCC) + 
-                       "KROCC={:.4f}, ".format(KROCC) + 
-                       "PLCC={:.4f}, ".format(PLCC) + 
+                print("Test results: " +
+                       "test loss={:.4f}, ".format(test_loss) +
+                       "SROCC={:.4f}, ".format(SROCC) +
+                       "KROCC={:.4f}, ".format(KROCC) +
+                       "PLCC={:.4f}, ".format(PLCC) +
                        "RMSE={:.4f}, ".format(RMSE) +
                        "OR={:.2f}%, ".format(OR * 100) +
                        "Acc={:.2f}%.".format(Acc * 100))
-                f.write("Test results: " + 
-                       "test loss={:.4f}, ".format(test_loss) + 
-                       "SROCC={:.4f}, ".format(SROCC) + 
-                       "KROCC={:.4f}, ".format(KROCC) + 
-                       "PLCC={:.4f}, ".format(PLCC) + 
+                f.write("Test results: " +
+                       "test loss={:.4f}, ".format(test_loss) +
+                       "SROCC={:.4f}, ".format(SROCC) +
+                       "KROCC={:.4f}, ".format(KROCC) +
+                       "PLCC={:.4f}, ".format(PLCC) +
                        "RMSE={:.4f}, ".format(RMSE) +
                        "OR={:.2f}%, ".format(OR * 100) +
                        "Acc={:.2f}%.".format(Acc * 100) + '\n')
-                np.save(save_result_file, 
+                np.save(save_result_file,
                         (sq, sq_std, sd, q, d, test_loss,
                         SROCC, KROCC, PLCC, RMSE, OR, Acc, test_index))
             f.close()
