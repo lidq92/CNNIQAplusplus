@@ -1,0 +1,42 @@
+enableTensorboard: True #
+test_during_training: True #
+
+### database ###
+LIVE:
+  datainfo: ./data/LIVEfullinfo.mat
+  im_dir: /media/ldq/Research/Data/databaserelease2/
+  n_distortions: 5
+
+patch_size: 32
+stride: 32
+
+train_ratio: 0.6
+# val_ratio: 0.2  #
+test_ratio: 0.2  #
+
+### model ###
+CNNIQA:
+  kernel_size: 7
+  n_kernels: 50
+  n1_nodes: 800
+  n2_nodes: 800
+  alpha_q: 1
+  alpha_d: 0
+
+CNNIQAplus:
+  kernel_size: 7
+  n_kernels: 50
+  n1_nodes: 800
+  n2_nodes: 800
+  alpha_q: 0.5
+  alpha_d: 0.5
+
+CNNIQAplusplus:
+  n1_kernels: 8
+  n2_kernels: 50
+  kernel_size: 3
+  pool_size: 2
+  n1_nodes: 128
+  n2_nodes: 512
+  alpha_q: 0.5
+  alpha_d: 0.5
