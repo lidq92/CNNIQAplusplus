@@ -1,6 +1,7 @@
 """
 PyTorch 0.4 implementation of the following paper:
-Kang, Le, et al. "Simultaneous estimation of image quality and distortion via multi-task convolutional neural networks." IEEE International Conference on Image Processing IEEE, 2015:2791-2795.
+Kang, Le, et al. "Simultaneous estimation of image quality and distortion via multi-task convolutional neural networks." 
+IEEE International Conference on Image Processing IEEE, 2015:2791-2795.
  Requirements:
     TensorboardX (https://github.com/lanpa/tensorboard-pytorch): `pip install tensorboardX`
     Tensorboard: `pip install tensorflow` (or just install tensorboard without the rest of tensorflow)
