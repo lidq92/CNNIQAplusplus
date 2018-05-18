@@ -1,7 +1,6 @@
 """
 PyTorch 0.4 implementation of the following paper:
-Kang L, Ye P, Li Y, et al. Convolutional neural networks for no-reference image quality assessment[C]//
-Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2014: 1733-1740.
+Kang, Le, et al. "Simultaneous estimation of image quality and distortion via multi-task convolutional neural networks." IEEE International Conference on Image Processing IEEE, 2015:2791-2795.
  Requirements:
     TensorboardX (https://github.com/lanpa/tensorboard-pytorch): `pip install tensorboardX`
     Tensorboard: `pip install tensorflow` (or just install tensorboard without the rest of tensorflow)
