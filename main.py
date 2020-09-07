@@ -107,6 +107,7 @@ class CNNIQAplusnet(nn.Module):
         self.fc2   = nn.Linear(n1_nodes, n2_nodes)
         self.fc3_q = nn.Linear(n2_nodes, 1)
         self.fc3_d = nn.Linear(n2_nodes, n_classes)
+        self.dropout = nn.Dropout()
 
     def forward(self, x):
         x = x.view(-1, x.size(-3), x.size(-2), x.size(-1))  #
@@ -118,7 +119,7 @@ class CNNIQAplusnet(nn.Module):
         h = h.squeeze(3).squeeze(2)
 
         h = F.relu(self.fc1(h))
-        h = F.dropout(h)
+        h = self.dropout(h)
         h = F.relu(self.fc2(h))
 
         q = self.fc3_q(h)
@@ -137,6 +138,7 @@ class CNNIQAplusplusnet(nn.Module):
         self.fc2   = nn.Linear(n1_nodes, n2_nodes)
         self.fc3_q = nn.Linear(n2_nodes, 1)
         self.fc3_d = nn.Linear(n2_nodes, n_distortions)
+        self.dropout = nn.Dropout()
 
     def forward(self, x):
         x  = x.view(-1, x.size(-3), x.size(-2), x.size(-1))  #
@@ -150,7 +152,7 @@ class CNNIQAplusplusnet(nn.Module):
         h  = h.squeeze(3).squeeze(2)
 
         h  = F.relu(self.fc1(h))
-        h  = F.dropout(h)
+        h  = self.dropout(h)
         h  = F.relu(self.fc2(h))
 
         q  = self.fc3_q(h)
